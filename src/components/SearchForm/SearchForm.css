@@ -33,3 +33,21 @@
         padding: 0.004rem;
     }
 }
+
+@media screen and (max-width: 441px) {
+    .search-form {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .search-form-elem {
+        padding: 1.2rem 1.8rem;
+        border-radius: 3.6rem;
+    }
+
+    .search-form-elem .form-control {
+        font-size: 1.25rem;
+        padding: 0.002rem;
+    }
+
+}
