@@ -1,0 +1,138 @@
+.navbar {
+    padding: 1.8rem 0;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.navbar-brand img {
+    width: 120px;
+
+}
+
+.navbar-brand span {
+    margin-left: 2rem;
+    /* text-shadow: 2px 3px 20px var(--purple-color); */
+    font-size: 3rem;
+}
+
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: var(--purple-color);
+}
+
+.hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--purple-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.brand-and-toggler {
+    width: 100%;
+}
+
+.navbar-content {
+    display: flex;
+    width: 100%;
+}
+
+.navbar-toggler-btn {
+    transition: var(--transition);
+    z-index: 11;
+}
+
+.navbar-collapse {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    background-color: var(--black-color);
+    height: 100%;
+    width: 280px;
+    display: flex;
+    padding: 10rem 3rem 0 3rem;
+    transform: translatex(100%);
+    transition: var(--transition);
+}
+
+.show-navbar-collapse {
+    transform: translateX(0);
+}
+
+.nav-item {
+    margin-bottom: 1.4rem;
+}
+
+.nav-link {
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    color: rgb(255, 7, 90) !important;
+    background-color: var(#ffffff);
+    padding: 8px 10px;
+    border-radius: 10%;
+    box-shadow: 8px 10px 10px 5px rgb(255, 7, 90);
+}
+
+@media screen and (max-width: 992px) {
+    .nav-link {
+        color: #ffffff !important;
+    }
+
+    .navbar-brand img {
+        width: 80px;
+    }
+
+    .navbar-brand span {
+        font-size: 2.2rem;
+    }
+
+}
+
+@media screen and (min-width: 992px) {
+    .nav-link {
+        /* color: var(--black-color); */
+        color: #ffffff;
+        font-size: 1.7rem;
+        font-weight: 500 !important;
+        opacity: 0.8;
+    }
+
+
+
+    .navbar-collapse {
+        position: relative;
+        height: auto;
+        padding: 0;
+        width: 100%;
+        background-color: transparent;
+        transform: translateX(0);
+        justify-content: flex-end;
+    }
+
+    .navbar-toggler-btn {
+        display: none;
+    }
+
+    .nav-item {
+        margin-bottom: 0;
+        margin-left: 2.8rem;
+    }
+
+
+    .navbar-nav {
+        display: flex;
+    }
+}
