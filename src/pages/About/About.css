@@ -1,66 +1,175 @@
 .about {
-    padding: 3rem 0;
+  min-height: 100vh;
+  padding: 12rem 0 8rem;
+  background: var(--bg-primary);
 }
 
 .about-content {
-    gap: 4rem;
+  gap: 6rem;
+  align-items: center;
 }
 
-.about-title {
-    margin: 1rem 0;
+.about-img-wrapper {
+  position: relative;
+}
+
+.about-img {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
 }
 
 .about-img img {
-    max-width: 520px;
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  filter: brightness(0.75) saturate(1.2);
 }
 
-.about-text p {
-    margin: 1.8rem 0;
-    opacity: 0.8;
+.about-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.2) 0%,
+    rgba(236, 72, 153, 0.15) 100%
+  );
+  border-radius: var(--radius-lg);
 }
 
-.pHead {
-    color: rgb(255, 7, 90);
-    font-weight: 800;
-    font-size: 4rem;
+.about-img-border {
+  position: absolute;
+  inset: -1px;
+  border-radius: var(--radius-lg);
+  background: var(--gradient-border);
+  z-index: -1;
+  opacity: 0.3;
 }
 
-.hover-underline-animation {
-    display: inline-block;
-    position: relative;
-    color: var(--purple-color);
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
 }
 
-.hover-underline-animation::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--purple-color);
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
+.about-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent-purple);
 }
 
-.hover-underline-animation:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
+.about-eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--gradient);
+  border-radius: 2px;
 }
 
+.about-title {
+  font-size: clamp(3rem, 4vw, 4.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  color: var(--text-primary);
+}
 
+.about-title span {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
-@media screen and (min-width: 800px) {
-    .about-content {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.about-body {
+  font-size: 1.6rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+}
 
-    .about-title {
-        margin-top: 0;
-    }
+.about-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+  margin-top: 0.8rem;
+}
 
-    .about-img img {
-        margin-left: 0;
-    }
+.about-feature {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.about-feature-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gradient);
+  flex-shrink: 0;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+  padding: 3.2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+.about-stat {
+  text-align: center;
+}
+
+.about-stat-number {
+  font-size: 3.2rem;
+  font-weight: 800;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.about-stat-label {
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: 0.4rem;
+  letter-spacing: 0.3px;
+}
+
+@media screen and (min-width: 900px) {
+  .about-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .about { padding: 9rem 0 6rem; }
+  .about-img img { height: 320px; }
+  .about-title { font-size: 3rem; }
+}
+
+@media screen and (max-width: 500px) {
+  .about { padding: 8rem 0 5rem; }
+  .about-features { grid-template-columns: 1fr; gap: 1.2rem; }
+  .about-stats { grid-template-columns: repeat(3, 1fr); gap: 1.2rem; padding: 2rem 1.6rem; }
+  .about-stat-number { font-size: 2.4rem; }
+  .about-stat-label { font-size: 1.2rem; }
+  .about-img img { height: 240px; }
+  .about-body { font-size: 1.5rem; }
 }

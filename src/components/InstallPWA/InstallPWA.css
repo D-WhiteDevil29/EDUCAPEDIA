@@ -1,0 +1,104 @@
+.pwa-banner {
+  position: fixed;
+  bottom: 2.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.4rem 1.6rem 1.4rem 1.4rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(139,92,246,0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  min-width: 320px;
+  max-width: calc(100vw - 4rem);
+}
+
+.pwa-banner-info {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.pwa-banner-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.pwa-banner-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.pwa-banner-body {
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.pwa-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-shrink: 0;
+}
+
+.pwa-install-btn {
+  padding: 0.8rem 1.8rem;
+  border-radius: 40px;
+  background: var(--gradient);
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.pwa-install-btn:hover { opacity: 0.9; }
+
+.pwa-dismiss-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border-subtle);
+  background: transparent;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.pwa-dismiss-btn:hover {
+  border-color: var(--border-accent);
+  color: var(--text-primary);
+}
+
+@media screen and (max-width: 480px) {
+  .pwa-banner {
+    bottom: 1.6rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+    min-width: unset;
+    width: calc(100vw - 3.2rem);
+  }
+  .pwa-banner-actions { width: 100%; justify-content: flex-end; }
+}

@@ -1,7 +1,70 @@
-.loader {
-    padding: 4rem 0;
+.skeleton-section {
+  padding: 6rem 0 8rem;
+  background: var(--bg-primary);
 }
 
-.loader img {
-    width: 120px;
+.skeleton-grid {
+  gap: 2.4rem;
+}
+
+.skeleton-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  padding: 2.4rem;
+  overflow: hidden;
+}
+
+.skeleton-pulse {
+  background: linear-gradient(
+    90deg,
+    var(--bg-card) 0%,
+    rgba(255, 255, 255, 0.06) 50%,
+    var(--bg-card) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+  border-radius: var(--radius-sm);
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skeleton-img {
+  width: 120px;
+  height: 170px;
+  margin: 0 auto 2rem;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-line {
+  height: 12px;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+}
+
+.skeleton-line.title {
+  width: 80%;
+  height: 16px;
+  margin: 0 auto 1.6rem;
+}
+
+.skeleton-line.author {
+  width: 65%;
+}
+
+.skeleton-line.meta {
+  width: 50%;
+}
+
+.skeleton-line.short {
+  width: 40%;
+}
+
+@media screen and (max-width: 480px) {
+  .skeleton-section { padding: 4rem 0 6rem; }
+  .skeleton-card { padding: 2rem 1.6rem; }
+  .skeleton-img { width: 100px; height: 142px; }
 }

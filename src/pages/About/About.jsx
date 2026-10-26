@@ -1,28 +1,119 @@
 import React from 'react';
-import "./About.css";
-import aboutImg from "../../images/library-img.jpg";
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
+import aboutImg from '../../images/library-img.jpg';
+import './About.css';
+
+const features = [
+  'Project Gutenberg powered',
+  '70,000+ free classics',
+  'Full in-browser reading',
+  'Real-time search',
+  'Subject & genre browsing',
+  'Font size controls'
+];
+
+const stats = [
+  { number: '70k+', label: 'Books Available' },
+  { number: '150+', label: 'Languages' },
+  { number: '100%', label: 'Free Forever' }
+];
 
 const About = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: '-80px' });
+
   return (
-    <section className='about'>
-      <div className='container'>
-        <div className='section-title'>
-          <h2>About</h2>
+    <>
+      <Navbar />
+      <motion.section
+        className="about"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.4 }}
+      >
+      <div className="container">
+        <div className="about-content grid" ref={ref}>
+          <motion.div
+            className="about-img-wrapper"
+            initial={{ opacity: 0, x: -40 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="about-img">
+              <img src={aboutImg} alt="Library" />
+              <div className="about-img-overlay" />
+            </div>
+            <div className="about-img-border" />
+          </motion.div>
+
+          <div className="about-text">
+            <motion.span
+              className="about-eyebrow"
+              initial={{ opacity: 0, x: 20 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              About Us
+            </motion.span>
+
+            <motion.h2
+              className="about-title"
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            >
+              Knowledge without <span>boundaries</span>
+            </motion.h2>
+
+            <motion.p
+              className="about-body"
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              EducaPedia is a free reading platform powered by Project Gutenberg — the world's
+              oldest digital library. Every book in our catalogue is fully readable in your
+              browser, no account needed, no cost, ever.
+            </motion.p>
+
+            <motion.div
+              className="about-features"
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              {features.map((f, i) => (
+                <div key={i} className="about-feature">
+                  <div className="about-feature-dot" />
+                  {f}
+                </div>
+              ))}
+            </motion.div>
+          </div>
         </div>
 
-        <div className='about-content grid'>
-          <div className='about-img'>
-            <img src = {aboutImg} alt = "" />
-          </div>
-          <div className='about-text'>
-            <h2 className='about-title hover-underline-animation fs-26 ls-1'>About Educapedia</h2>
-            <p className='fs-17'>Welcome to <span className='pHead'>E</span>ducapedia, the ultimate online book library for knowledge and learning. We provide access to a diverse collection of books and resources from around the world, covering a wide range of topics from science and technology to literature and the arts. Our mission is to promote education and personal development through reading and learning.At Educapedia, we believe that knowledge is power, and we are committed to helping people expand their knowledge and pursue their passions. Our online library is easily accessible to anyone with an internet connection, making it convenient for students, professionals, and avid readers to access our resources from anywhere in the world.</p>
-            <p className='fs-17'>We strive to create an engaging and interactive learning experience for our users. Our library includes features such as personalized reading lists, bookmarking tools, and discussion groups, to make reading and learning as exciting and interactive as possible.We are passionate about providing resources for people to learn and grow, regardless of their background or circumstances. We believe that education is a lifelong journey and that there is always more to learn. Join our community today and start your journey towards greater understanding and enlightenment with Educapedia.</p>
-          </div>
-        </div>
+        <motion.div
+          className="about-stats"
+          initial={{ opacity: 0, y: 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.65, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {stats.map((s, i) => (
+            <div key={i} className="about-stat">
+              <div className="about-stat-number">{s.number}</div>
+              <div className="about-stat-label">{s.label}</div>
+            </div>
+          ))}
+        </motion.div>
       </div>
-    </section>
-  )
-}
+      </motion.section>
+      <Footer />
+    </>
+  );
+};
 
 export default About;

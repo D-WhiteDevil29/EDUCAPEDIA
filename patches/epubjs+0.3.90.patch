@@ -1,0 +1,46 @@
+diff --git a/node_modules/epubjs/lib/managers/continuous/index.js b/node_modules/epubjs/lib/managers/continuous/index.js
+index c07ba5c..5da128a 100644
+--- a/node_modules/epubjs/lib/managers/continuous/index.js
++++ b/node_modules/epubjs/lib/managers/continuous/index.js
+@@ -363,9 +363,8 @@ class ContinuousViewManager extends _default2.default {
+   }
+ 
+   addEventListeners(stage) {
+-    window.addEventListener("unload", function (e) {
+-      this.ignore = true; // this.scrollTo(0,0);
+-
++    window.addEventListener("pagehide", function (e) {
++      this.ignore = true;
+       this.destroy();
+     }.bind(this));
+     this.addScrollListeners();
+diff --git a/node_modules/epubjs/lib/managers/default/index.js b/node_modules/epubjs/lib/managers/default/index.js
+index cd7e4a2..6e727a3 100644
+--- a/node_modules/epubjs/lib/managers/default/index.js
++++ b/node_modules/epubjs/lib/managers/default/index.js
+@@ -111,7 +111,7 @@ class DefaultViewManager {
+ 
+   addEventListeners() {
+     var scroller;
+-    window.addEventListener("unload", function (e) {
++    window.addEventListener("pagehide", function (e) {
+       this.destroy();
+     }.bind(this));
+ 
+diff --git a/node_modules/epubjs/lib/managers/views/iframe.js b/node_modules/epubjs/lib/managers/views/iframe.js
+index bd7fecc..f7e4e15 100644
+--- a/node_modules/epubjs/lib/managers/views/iframe.js
++++ b/node_modules/epubjs/lib/managers/views/iframe.js
+@@ -93,11 +93,7 @@ class IframeView {
+ 
+     this.iframe.style.border = "none"; // sandbox
+ 
+-    this.iframe.sandbox = "allow-same-origin";
+-
+-    if (this.settings.allowScriptedContent && this.section.properties.indexOf("scripted") > -1) {
+-      this.iframe.sandbox += " allow-scripts";
+-    }
++    this.iframe.sandbox = "allow-same-origin allow-scripts";
+ 
+     this.iframe.setAttribute("enable-annotation", "true");
+     this.resizing = true; // this.iframe.style.display = "none";

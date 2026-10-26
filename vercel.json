@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/epub-proxy/archive/:path*",
+      "destination": "https://archive.org/download/:path*"
+    },
+    {
+      "source": "/epub-proxy/gutenberg/:path*",
+      "destination": "https://www.gutenberg.org/cache/epub/:path*"
+    }
+  ]
+}

@@ -1,17 +1,185 @@
+.header {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+.header-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: orb-float 8s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, transparent 70%);
+  top: -200px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, transparent 70%);
+  top: 100px;
+  right: -100px;
+  animation-delay: -4s;
+}
+
+.orb-3 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+  bottom: 0;
+  left: 40%;
+  animation-delay: -2s;
+}
+
+@keyframes orb-float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  33% { transform: translateY(-30px) scale(1.05); }
+  66% { transform: translateY(15px) scale(0.97); }
+}
+
+.header-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(139, 92, 246, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 92, 246, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
+}
+
 .header-content {
-    min-height: 75vh;
-    background: linear-gradient(rgba(141, 39, 174, 0.3), rgba(141, 39, 174, 0.5)), url("../../images/library-img.jpg") center/cover no-repeat;
-    flex-direction: column;
-    padding: 10px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 12rem 2.4rem 8rem;
+  text-align: center;
+}
+
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.6rem 1.6rem;
+  border-radius: 40px;
+  background: var(--gradient-subtle);
+  border: 1px solid var(--border-accent);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--accent-purple);
+  letter-spacing: 0.5px;
+  margin-bottom: 2.8rem;
+}
+
+.header-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-purple);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
 }
 
 .header-title {
-    font-size: 4.2rem;
+  font-size: clamp(4rem, 8vw, 7.2rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  color: var(--text-primary);
+  max-width: 900px;
+  margin-bottom: 2.4rem;
+}
+
+.header-title-accent {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .header-text {
-    margin-top: -1.8rem;
-    margin-bottom: 2.8rem;
-    opacity: 0.8;
-    max-width: 770px;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  max-width: 600px;
+  line-height: 1.7;
+  margin-bottom: 4rem;
+}
+
+.header-stats {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  margin-top: 6rem;
+}
+
+.header-stat {
+  text-align: center;
+}
+
+.header-stat-number {
+  font-size: 2.8rem;
+  font-weight: 800;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -1px;
+}
+
+.header-stat-label {
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.header-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--border-subtle);
+}
+
+@media screen and (max-width: 768px) {
+  .header-content { padding: 10rem 2rem 6rem; }
+  .header-text { font-size: 1.6rem; margin-bottom: 3.2rem; }
+}
+
+@media screen and (max-width: 600px) {
+  .header-content { padding: 9rem 1.6rem 5rem; }
+  .header-stats { gap: 2rem; margin-top: 4rem; }
+  .header-divider { height: 24px; }
+  .header-stat-number { font-size: 2rem; }
+  .header-stat-label { font-size: 1.1rem; }
+  .header-badge { font-size: 1.15rem; padding: 0.5rem 1.2rem; }
+  .header-text { font-size: 1.5rem; max-width: 100%; }
+}
+
+@media screen and (max-width: 400px) {
+  .header-stats { gap: 1.4rem; }
+  .header-stat-number { font-size: 1.8rem; }
+  .header-divider { height: 20px; }
 }
