@@ -26,14 +26,6 @@
     "eject": "react-scripts eject",
     "postinstall": "patch-package"
   },
-  "resolutions": {
-    "ajv": "^8.0.0",
-    "ajv-keywords": "^5.0.0"
-  },
-  "overrides": {
-    "ajv": "^8.0.0",
-    "ajv-keywords": "^5.0.0"
-  },
   "eslintConfig": {
     "extends": [
       "react-app",
