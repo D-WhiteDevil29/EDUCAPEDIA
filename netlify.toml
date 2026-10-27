@@ -1,13 +1,6 @@
 [build]
-  command = "npm run build"
+  command = "echo Build skipped - using pre-built files"
   publish = "build"
-
-[build.environment]
-  NODE_VERSION = "16"
-  NPM_FLAGS = "--legacy-peer-deps"
-  CI = "false"
-  SKIP_PREFLIGHT_CHECK = "true"
-  GENERATE_SOURCEMAP = "false"
 
 [[redirects]]
   from = "/epub-proxy/archive/*"

@@ -1,0 +1,2 @@
+/epub-proxy/archive/*  https://archive.org/download/:splat  200
+/epub-proxy/gutenberg/*  https://www.gutenberg.org/cache/epub/:splat  200
