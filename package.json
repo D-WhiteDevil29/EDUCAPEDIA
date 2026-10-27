@@ -16,8 +16,7 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "patch-package": "^8.0.1",
-    "postinstall-postinstall": "^2.1.0"
+    "patch-package": "^8.0.1"
   },
   "overrides": {
     "ajv": "^8.6.3",

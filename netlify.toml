@@ -2,6 +2,10 @@
   command = "echo Build skipped - using pre-built files"
   publish = "build"
 
+[build.environment]
+  NPM_FLAGS = "--legacy-peer-deps --ignore-scripts"
+  CI = "false"
+
 [[redirects]]
   from = "/epub-proxy/archive/*"
   to = "https://archive.org/download/:splat"
