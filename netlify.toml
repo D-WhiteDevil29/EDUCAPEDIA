@@ -1,0 +1,26 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[build.environment]
+  NODE_VERSION = "18"
+  NPM_FLAGS = "--legacy-peer-deps --ignore-scripts"
+  CI = "false"
+  SKIP_PREFLIGHT_CHECK = "true"
+
+[[redirects]]
+  from = "/epub-proxy/archive/*"
+  to = "https://archive.org/download/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/epub-proxy/gutenberg/*"
+  to = "https://www.gutenberg.org/cache/epub/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
