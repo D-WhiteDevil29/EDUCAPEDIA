@@ -20,8 +20,13 @@
     "postinstall-postinstall": "^2.1.0"
   },
   "overrides": {
-    "ajv": "^6.12.6",
-    "ajv-keywords": "^3.5.2"
+    "ajv": "^8.6.3",
+    "ajv-keywords": "^5.1.0",
+    "ajv-formats": "^2.1.1",
+    "fork-ts-checker-webpack-plugin": {
+      "ajv": "^6.12.6",
+      "ajv-keywords": "^3.5.2"
+    }
   },
   "scripts": {
     "start": "react-scripts start",
